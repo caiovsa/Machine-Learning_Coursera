@@ -1,0 +1,24 @@
+%MODO EU FORMULA NORMAL
+%h = theta(1,1) + theta(2,1).*X(:,2)
+%J = 1/(2*m) * (sum((h - y).^2))
+
+%MODO EU FORMULA MATRICIAL
+%h = X*theta
+%J = 1/(2*m)*(h - y)'*(h - y)
+
+# MODO INICIANTE QUE COPIEI DOS SERES INFERIORES DA INTERNET
+#J = 1/(2*m) * (sum((X*theta - y).^2))
+
+
+
+
+----Gradient Descent-----
+h = theta(1,1) + theta(2,1).*X(:,2);
+theta(1,1) = theta(1,1) - alpha*1/m*(sum(h-y))
+theta(2,1) = theta(2,1) - alpha*1/m*(sum(h-y)).*X(:,2)
+
+Matricial
+for i in range(1,1000):
+	theta = theta - (alpha*1/m * ((X'*(X*theta))-(X'*y)))
+	return theta
+
